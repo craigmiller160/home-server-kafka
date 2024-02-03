@@ -29,5 +29,7 @@ kafka_ui:
   cert_issuer: letsencrypt-kafka-ui
   ingress:
     name: kafka-ui-ingress
+    host: kafka.craigmiller160.us
+    ipWhitelist: 47.196.38.229/32
   secrets:
     certificate: letsencrypt-kafka-ui-private-key
