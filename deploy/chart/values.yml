@@ -2,10 +2,12 @@ kafka:
   name: kafka
   configmap_name: kafka-config
   data_volume_name: kafka-data-volume
+  cert_issuer: kafka-selfsigned-issuer
   secrets:
     super_user: kafka-superuser
     controller_user: kafka-controller-user
     broker_user: kafka-broker-user
+    certificate: kafka-certificate
   networking:
     internal_port: 9094
     public_port: 30020
