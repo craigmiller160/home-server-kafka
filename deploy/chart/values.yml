@@ -1,5 +1,8 @@
 kafka:
   name: kafka
+  configmap_name: kafka-config
+  secrets:
+    super_user: kafka-superuser
   networking:
     internal_port: 9094
     public_port: 30020

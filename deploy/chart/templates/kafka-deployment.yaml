@@ -18,3 +18,21 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.kafka.networking.internal_port }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.kafka.configmap_name }}
+          env:
+            - name: KAFA_SUPER_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Values.kafka.secrets.super_user }}
+            - name: KAFKA_SUPER_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka.secrets.super_user }}
+            - name: KAFKA_CLIENT_USERS
+              value: "$KAFKA_SUPER_USER_NAME"
+            - name: KAFKA_CLIENT_PASSWORDS
+              value: "$KAFKA_SUPER_USER_PASSWORD"
