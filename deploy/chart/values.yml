@@ -1,8 +1,11 @@
 kafka:
   name: kafka
   configmap_name: kafka-config
-  data_volume_name: kafka-data-volume
   cert_issuer: kafka-selfsigned-issuer
+  volumes:
+    data: kafka-data-volume
+    certs: kafka-certs-volume
+    keystores: kafka-keystores-volume
   secrets:
     super_user: kafka-superuser
     controller_user: kafka-controller-user

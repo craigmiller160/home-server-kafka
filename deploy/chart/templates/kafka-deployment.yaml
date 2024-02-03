@@ -12,6 +12,9 @@ spec:
       labels:
         app: {{ .Values.kafka.name }}
     spec:
+      initContainers:
+        - name: kafka-keystore-creator
+          image:
       containers:
         - name: kafka
           image: bitnami/kafka:3.5.2-0
@@ -56,8 +59,15 @@ spec:
               value: "User:$KAFKA_CLIENT_USERS;User:$KAFKA_CONTROLLER_USER;User:$KAFKA_INTER_BROKER_USER"
           volumeMounts:
             - mountPath: /bitnami/kafka
-              name: {{ .Values.kafka.data_volume_name }}
+              name: {{ .Values.kafka.volumes.data }}
+            - mountPath: /opt/bitnami/kafka/config/certs/
+              name: {{ .Values.kafka.volumes.keystores }}
       volumes:
-        - name: {{ .Values.kafka.data_volume_name }}
+        - name: {{ .Values.kafka.volumes.data }}
           persistentVolumeClaim:
-            claimName: {{ .Values.kafka.data_volume_name }}
+            claimName: {{ .Values.kafka.volumes.data }}
+        - name: {{ .Values.kafka.volumes.certs }}
+          secret:
+            secretName: {{ .Values.kafka.secrets.certificate }}
+        - name: {{ .Values.kafka.volumes.keystores }}
+          emptyDir: {}
