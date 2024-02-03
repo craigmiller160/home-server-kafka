@@ -3,6 +3,7 @@ kafka:
   configmap_name: kafka-config
   secrets:
     super_user: kafka-superuser
+    controller_user: kafka-controller-user
   networking:
     internal_port: 9094
     public_port: 30020
