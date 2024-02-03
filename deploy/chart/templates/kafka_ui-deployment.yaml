@@ -17,3 +17,6 @@ spec:
           image: "provectuslabs/kafka-ui:{{ .Values.kafka_ui.version }}"
           ports:
             - containerPort: {{ .Values.kafka_ui.networking.internal_port }}
+          env:
+            - name: DYNAMIC_CONFIG_ENABLED
+              value: "true"
