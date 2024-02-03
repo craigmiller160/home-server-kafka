@@ -35,7 +35,7 @@ spec:
             - containerPort: {{ .Values.kafka.networking.internal_port }}
           envFrom:
             - configMapRef:
-                name: {{ .Values.kafka.configmap_name }}
+                name: {{ .Values.kafka.configmap.primary }}
           env:
             - name: KAFKA_CONTROLLER_USER
               valueFrom:
