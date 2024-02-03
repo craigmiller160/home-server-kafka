@@ -14,7 +14,13 @@ spec:
     spec:
       initContainers:
         - name: kafka-keystore-creator
-          image:
+          image: openjdk:19-slim
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /certs
+              name: {{ .Values.kafka.volumes.certs }}
+            - mountPath: /keystores
+              name: {{ .Values.kafka.volumes.keystores }}
       containers:
         - name: kafka
           image: bitnami/kafka:3.5.2-0
