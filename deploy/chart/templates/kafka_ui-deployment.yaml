@@ -21,8 +21,8 @@ spec:
             - name: DYNAMIC_CONFIG_ENABLED
               value: "true"
           volumeMounts:
-            - mountPath:
-              name:
+            - mountPath: /etc/kafkaui
+              name: {{ .Values.kafka_ui.volumes.dynamic_config }}
       volumes:
         - name: {{ .Values.kafka_ui.volumes.dynamic_config }}
           configMap:
