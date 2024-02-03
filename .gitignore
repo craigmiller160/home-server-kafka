@@ -1,3 +1,4 @@
 .idea
 *.iml
 deploy/chart/charts
+deploy/*.tgz
