@@ -29,7 +29,7 @@ spec:
               name: {{ .Values.kafka.volumes.keystores }}
       containers:
         - name: {{ .Values.kafka.name }}
-          image: "bitnami/kafka:{{ .Values.kafka.version }}}"
+          image: "bitnami/kafka:{{ .Values.kafka.version }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.kafka.networking.internal_port }}
