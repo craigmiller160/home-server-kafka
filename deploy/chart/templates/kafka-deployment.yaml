@@ -42,3 +42,13 @@ spec:
                 secretKeyRef:
                   key: password
                   name: {{ .Values.kafka.secrets.super_user }}
+            - name: KAFKA_INTER_BROKER_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Values.kafka.secrets.broker_user }}
+            - name: KAFKA_INTER_BROKER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka.secrets.broker_user }}

@@ -4,6 +4,7 @@ kafka:
   secrets:
     super_user: kafka-superuser
     controller_user: kafka-controller-user
+    broker_user: kafka-broker-user
   networking:
     internal_port: 9094
     public_port: 30020
