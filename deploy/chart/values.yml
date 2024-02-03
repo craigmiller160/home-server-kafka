@@ -1,0 +1,5 @@
+deployment:
+  name: kafka
+networking:
+  internal_port: 9094
+  public_port: 30020
