@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.kafka_ui.dynamic_config_configmap_name }}
+  name: {{ .Values.kafka_ui.configmap.dynamic_config }}
 data:
   dynamic-config.yaml: |
     kafka:

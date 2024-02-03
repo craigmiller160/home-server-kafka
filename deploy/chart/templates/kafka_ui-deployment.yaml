@@ -26,4 +26,4 @@ spec:
       volumes:
         - name: {{ .Values.kafka_ui.volumes.dynamic_config }}
           configMap:
-            name: {{ .Values.kafka_ui.dynamic_config_configmap_name }}
+            name: {{ .Values.kafka_ui.configmap.dynamic_config }}
