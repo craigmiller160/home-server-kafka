@@ -38,7 +38,7 @@ spec:
                   key: username
                   name: {{ .Values.kafka.secrets.super_user }}
             - name: KAFKA_CLIENT_PASSWORDS
-              vvalueFrom:
+              valueFrom:
                 secretKeyRef:
                   key: password
                   name: {{ .Values.kafka.secrets.super_user }}
