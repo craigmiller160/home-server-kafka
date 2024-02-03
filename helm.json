@@ -1,6 +1,6 @@
 {
   "name": "@craigmiller160/kafka",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "namespace": "infra-prod",
   "type": "application"
 }
