@@ -16,3 +16,5 @@ kafka:
     public_port: 30020
 kafkaui:
   name: kafka-ui
+  networking:
+    internal_port: 8080
