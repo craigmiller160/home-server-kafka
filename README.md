@@ -1,3 +1,3 @@
 # Home Server Kafka
 
-oci://registry-1.docker.io/bitnamicharts
+Installs Apache Kafka to my home server.
