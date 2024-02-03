@@ -1,5 +1,6 @@
 kafka:
   name: kafka
+  version: 3.5.2-0
   configmap_name: kafka-config
   cert_issuer: kafka-selfsigned-issuer
   volumes:
@@ -14,7 +15,8 @@ kafka:
   networking:
     internal_port: 9094
     public_port: 30020
-kafkaui:
+kafka_ui:
   name: kafka-ui
+  version: 0.7.1
   networking:
     internal_port: 8080

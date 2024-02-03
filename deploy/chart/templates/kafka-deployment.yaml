@@ -28,8 +28,8 @@ spec:
             - mountPath: /keystores
               name: {{ .Values.kafka.volumes.keystores }}
       containers:
-        - name: kafka
-          image: bitnami/kafka:3.5.2-0
+        - name: {{ .Values.kafka.name }}
+          image: "bitnami/kafka:{{ .Values.kafka.version }}}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.kafka.networking.internal_port }}
