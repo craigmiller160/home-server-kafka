@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.kafka_ui.dynamic_config_configmap_name }}
+data:
+  dynamic-config.yaml: |
+    kafka:
+      clusters:
+      - bootstrapServers: kafka:9092
+        name: SuperUserKafka
+        properties:
+          security.protocol: SASL_PLAINTEXT
+          sasl.mechanism: PLAIN
+          sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required
+            username="user" password="password";
+        readOnly: false
