@@ -16,6 +16,12 @@ spec:
         - name: kafka-keystore-creator
           image: openjdk:19-slim
           imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              cp /certs/tls.crt /keystores/kafka.keystore.pem &&
+              cp /certs/tls.key /keystores/kafka.keystore.key
           volumeMounts:
             - mountPath: /certs
               name: {{ .Values.kafka.volumes.certs }}
