@@ -20,6 +20,7 @@ kafka_ui:
   name: kafka-ui
   version: 0.7.1
   configmap:
+    primary: kafka-ui-config
     dynamic_config: kafka-ui-dynamic-config
   networking:
     internal_port: 8080
