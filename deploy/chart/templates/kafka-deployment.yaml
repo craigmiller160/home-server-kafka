@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ .Values.kafka.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.deployment.name }}
+      app: {{ .Values.kafka.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.name }}
+        app: {{ .Values.kafka.name }}
     spec:
       containers:
         - name: kafka
           image: bitnami/kafka:3.5.2-0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: {{ .Values.networking.internal_port }}
+            - containerPort: {{ .Values.kafka.networking.internal_port }}
