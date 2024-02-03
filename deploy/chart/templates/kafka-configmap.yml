@@ -18,4 +18,3 @@ data:
   KAFKA_CFG_INTER_BROKER_LISTENER_NAME: "INTERNAL"
   KAFKA_CERTIFICATE_PASSWORD: "password"
   KAFKA_CFG_AUTHORIZER_CLASS_NAME: "org.apache.kafka.metadata.authorizer.StandardAuthorizer"
-  KAFKA_CFG_SUPER_USERS: "User:super_user;User:controller_user;User:broker_user"
