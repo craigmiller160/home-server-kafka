@@ -1,6 +1,7 @@
 kafka:
   name: kafka
   configmap_name: kafka-config
+  data_volume_name: kafka-data-volume
   secrets:
     super_user: kafka-superuser
     controller_user: kafka-controller-user
