@@ -1,0 +1,6 @@
+{
+  "name": "@craigmiller160/kafka",
+  "version": "1.0.0",
+  "namespace": "infra-dev",
+  "type": "application"
+}
