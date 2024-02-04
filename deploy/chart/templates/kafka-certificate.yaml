@@ -16,8 +16,8 @@ spec:
   commonName: {{ .Values.kafka.secrets.certificate }}
   secretName: {{ .Values.kafka.secrets.certificate }}
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    size: 4096
   issuerRef:
     name: {{ .Values.kafka.cert_issuer }}
     kind: ClusterIssuer
