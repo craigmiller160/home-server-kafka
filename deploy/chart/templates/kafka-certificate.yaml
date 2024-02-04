@@ -7,6 +7,15 @@ spec:
 
 ---
 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kafka-keystore-password
+data:
+  password: password
+
+---
+
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -22,3 +31,10 @@ spec:
     name: {{ .Values.kafka.cert_issuer }}
     kind: ClusterIssuer
     group: cert-manager.io
+  keystores:
+    pkcs12:
+      create: true
+      passwordSecretRef:
+        name: kafka-keystore-password
+        key: password
+      profile: Modern2023
