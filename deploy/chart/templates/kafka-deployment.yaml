@@ -70,6 +70,11 @@ spec:
                   name: {{ .Values.kafka.secrets.broker_user }}
             - name: KAFKA_CFG_SUPER_USERS
               value: "User:$KAFKA_CLIENT_USERS;User:$KAFKA_CONTROLLER_USER;User:$KAFKA_INTER_BROKER_USER"
+            - name: KAFKA_CERTIFICATE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka.secrets.keystore_password }}
           volumeMounts:
             - mountPath: /bitnami/kafka
               name: {{ .Values.kafka.volumes.data }}

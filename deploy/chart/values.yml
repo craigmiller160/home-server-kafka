@@ -13,6 +13,7 @@ kafka:
     controller_user: kafka-controller-user
     broker_user: kafka-broker-user
     certificate: kafka-certificate
+    keystore_password: kafka-keystore-password
   networking:
     internal_port: 9094
     public_port: 30020

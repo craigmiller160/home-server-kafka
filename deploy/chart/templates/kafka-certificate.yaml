@@ -10,7 +10,7 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: kafka-keystore-password
+  name: {{ .Values.kafka.secrets.keystore_password }}
 data:
   password: password
 
@@ -35,6 +35,6 @@ spec:
     pkcs12:
       create: true
       passwordSecretRef:
-        name: kafka-keystore-password
+        name: {{ .Values.kafka.secrets.keystore_password }}
         key: password
       profile: Modern2023
