@@ -22,7 +22,7 @@ spec:
             - |
               cp /certs/tls.crt /keystores/kafka.keystore.pem &&
               cp /certs/tls.key /keystores/kafka.keystore.key &&
-              cp /certs/tls.crt /keystores/kafka.truststore.pem
+              cp /certs/ca.crt /keystores/kafka.truststore.pem
           volumeMounts:
             - mountPath: /certs
               name: {{ .Values.kafka.volumes.certs }}
