@@ -37,4 +37,3 @@ spec:
       passwordSecretRef:
         name: {{ .Values.kafka.secrets.keystore_password }}
         key: password
-      profile: Modern2023
