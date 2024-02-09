@@ -37,6 +37,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.kafka.configmap.primary }}
+          command:
+            - sh
+            - -c
+            - --
+          args:
+            - "while true; do sleep 30; done;"
           env:
             - name: KAFKA_CONTROLLER_USER
               valueFrom:
@@ -80,6 +86,8 @@ spec:
               name: {{ .Values.kafka.volumes.data }}
             - mountPath: /opt/bitnami/kafka/config/certs/
               name: {{ .Values.kafka.volumes.keystores }}
+            - mountPath: /certs
+              name: {{ .Values.kafka.volumes.certs }}
       volumes:
         - name: {{ .Values.kafka.volumes.data }}
           persistentVolumeClaim:
