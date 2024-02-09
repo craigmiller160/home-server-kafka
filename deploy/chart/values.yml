@@ -15,7 +15,9 @@ kafka:
     certificate: kafka-certificate
     keystore_password: kafka-keystore-password
   networking:
-    internal_port: 9094
+    internal_port: 9092
+    controller_port: 9093
+    external_port: 9094
     public_port: 30020
 kafka_ui:
   name: kafka-ui

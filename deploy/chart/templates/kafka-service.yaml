@@ -7,6 +7,6 @@ spec:
   selector:
     app: {{ .Values.kafka.name }}
   ports:
-    - port: {{ .Values.kafka.networking.internal_port }}
-      targetPort: {{ .Values.kafka.networking.internal_port }}
+    - port: {{ .Values.kafka.networking.external_port }}
+      targetPort: {{ .Values.kafka.networking.external_port }}
       nodePort: {{ .Values.kafka.networking.public_port }}

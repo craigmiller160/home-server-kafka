@@ -32,7 +32,9 @@ spec:
           image: "bitnami/kafka:{{ .Values.kafka.version }}"
           imagePullPolicy: IfNotPresent
           ports:
+            - containerPort: {{ .Values.kafka.networking.external_port }}
             - containerPort: {{ .Values.kafka.networking.internal_port }}
+            - containerPort: {{ .Values.kafka.networking.controller_port }}
           envFrom:
             - configMapRef:
                 name: {{ .Values.kafka.configmap.primary }}
