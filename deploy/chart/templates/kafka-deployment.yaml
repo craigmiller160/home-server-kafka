@@ -20,9 +20,8 @@ spec:
             - sh
             - -c
             - |
-              cp /certs/tls.crt /keystores/kafka.keystore.pem &&
-              cp /certs/tls.key /keystores/kafka.keystore.key &&
-              cp /certs/ca.crt /keystores/kafka.truststore.pem
+              cp /certs/keystore.p12 /keystores/kafka.keystore.jks &&
+              cp /certs/truststore.p12 /keystores/kafka.truststore.jks
           volumeMounts:
             - mountPath: /certs
               name: {{ .Values.kafka.volumes.certs }}
@@ -37,12 +36,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.kafka.configmap.primary }}
-          command:
-            - sh
-            - -c
-            - --
-          args:
-            - "while true; do sleep 30; done;"
           env:
             - name: KAFKA_CONTROLLER_USER
               valueFrom:
