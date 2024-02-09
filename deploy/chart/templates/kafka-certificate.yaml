@@ -14,6 +14,7 @@ metadata:
 data:
   # Password is "password1@", exclusively internal and does not need to be secure
   password: "{{ "password1@" | b64enc }}"
+type: Opaque
 
 ---
 
