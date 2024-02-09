@@ -1,14 +1,14 @@
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: {{ .Values.kafka_ui.cert_issuer }}
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: craigmiller160@gmail.com
-    privateKeySecretRef:
-      name: {{ .Values.kafka_ui.secrets.certificate }}
-    solvers:
-      - http01:
-          ingress:
-            class: public
+{{/*apiVersion: cert-manager.io/v1*/}}
+{{/*kind: ClusterIssuer*/}}
+{{/*metadata:*/}}
+{{/*  name: {{ .Values.kafka_ui.cert_issuer }}*/}}
+{{/*spec:*/}}
+{{/*  acme:*/}}
+{{/*    server: https://acme-v02.api.letsencrypt.org/directory*/}}
+{{/*    email: craigmiller160@gmail.com*/}}
+{{/*    privateKeySecretRef:*/}}
+{{/*      name: {{ .Values.kafka_ui.secrets.certificate }}*/}}
+{{/*    solvers:*/}}
+{{/*      - http01:*/}}
+{{/*          ingress:*/}}
+{{/*            class: public*/}}
