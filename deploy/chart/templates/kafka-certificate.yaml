@@ -12,8 +12,8 @@ kind: Secret
 metadata:
   name: {{ .Values.kafka.secrets.keystore_password }}
 data:
-  # Password is "password", exclusively internal and does not need to be secure
-  password: cGFzc3dvcmQK
+  # Password is "password1@", exclusively internal and does not need to be secure
+  password: "{{ "password1@" | b64enc }}"
 
 ---
 
