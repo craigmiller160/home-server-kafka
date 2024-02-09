@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.kafka.name }}-service
+  name: {{ .Values.kafka.name }}-public-service
 spec:
   type: NodePort
   selector:
@@ -10,3 +10,19 @@ spec:
     - port: {{ .Values.kafka.networking.external_port }}
       targetPort: {{ .Values.kafka.networking.external_port }}
       nodePort: {{ .Values.kafka.networking.public_port }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.kafka.name }}-private-service
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Values.kafka.name }}
+  ports:
+    - port: {{ .Values.kafka.networking.internal_port }}
+      targetPort: {{ .Values.kafka.networking.internal_port }}
+    - port: {{ .Values.kafka.networking.controller_port }}
+      targetPort: {{ .Values.kafka.networking.controller_port }}
