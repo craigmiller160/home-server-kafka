@@ -6,7 +6,7 @@ data:
   dynamic-config.yaml: |
     kafka:
       clusters:
-      - bootstrapServers: {{ .Values.kafka.name }}-private-service:9092
+      - bootstrapServers: "{{ .Values.kafka.name }}-private-service:{{ .Values.kafka.networking.internal_port }}"
         name: SuperUserKafka
         properties:
           security.protocol: SASL_PLAINTEXT
