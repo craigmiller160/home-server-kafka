@@ -22,7 +22,9 @@ spec:
   selector:
     app: {{ .Values.kafka.name }}
   ports:
-    - port: {{ .Values.kafka.networking.internal_port }}
+    - name: internal
+      port: {{ .Values.kafka.networking.internal_port }}
       targetPort: {{ .Values.kafka.networking.internal_port }}
-    - port: {{ .Values.kafka.networking.controller_port }}
+    - name: controller
+      port: {{ .Values.kafka.networking.controller_port }}
       targetPort: {{ .Values.kafka.networking.controller_port }}
