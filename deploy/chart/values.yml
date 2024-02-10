@@ -21,7 +21,7 @@ kafka:
     public_port: 30020
 kafka_ui:
   name: kafka-ui
-  version: 0.7.1
+  version: v0.7.1
   configmap:
     primary: kafka-ui-config
     dynamic_config: kafka-ui-dynamic-config
