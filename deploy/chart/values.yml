@@ -15,6 +15,9 @@ kafka:
     certificate: kafka-certificate
     keystore_password: kafka-keystore-password
   networking:
+    services:
+      private: kafka-private-service
+      public: kafka-public-service
     internal_port: 9092
     controller_port: 9093
     external_port: 9094
