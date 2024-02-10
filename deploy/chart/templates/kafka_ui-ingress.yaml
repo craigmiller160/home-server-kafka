@@ -18,7 +18,7 @@ spec:
             path: /
             backend:
               service:
-                name: {{ .Values.kafka_ui.name }}-service
+                name:{{ .Values.kafka_ui.networking.services.private }}
                 port:
                   number: {{ .Values.kafka_ui.networking.internal_port }}
   tls:

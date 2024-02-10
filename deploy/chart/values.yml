@@ -29,6 +29,8 @@ kafka_ui:
     primary: kafka-ui-config
     dynamic_config: kafka-ui-dynamic-config
   networking:
+    services:
+      private: kafka-ui-private-service
     internal_port: 8080
   volumes:
     dynamic_config: dynamic-config-volume

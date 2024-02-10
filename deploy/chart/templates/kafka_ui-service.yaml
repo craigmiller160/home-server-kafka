@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.kafka_ui.name }}-service
+  name: {{ .Values.kafka_ui.networking.services.private }}
 spec:
   type: ClusterIP
   selector:
