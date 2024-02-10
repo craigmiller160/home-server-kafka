@@ -13,8 +13,8 @@ spec:
         app: {{ .Values.kafka.name }}
     spec:
       initContainers:
-        - name: kafka-keystore-creator
-          image: openjdk:19-slim
+        - name: {{ .Values.kafka.name }}-keystore-copier
+          image: busybox:1.35.0
           imagePullPolicy: IfNotPresent
           command:
             - sh

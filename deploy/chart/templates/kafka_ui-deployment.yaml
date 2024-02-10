@@ -12,6 +12,21 @@ spec:
       labels:
         app: {{ .Values.kafka_ui.name }}
     spec:
+      initContainers:
+        - name: {{ .Values.kafka_ui.name }}-config-modifier
+          image: busybox:1.35.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: KAFKA_SUPER_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Values.kafka.secrets.super_user }}
+            - name: KAFKA_SUPER_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka.secrets.super_user }}
       containers:
         - name: {{ .Values.kafka_ui.name }}
           image: "provectuslabs/kafka-ui:{{ .Values.kafka_ui.version }}"
