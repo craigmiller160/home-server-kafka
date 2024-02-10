@@ -1,27 +1,27 @@
-{{/*apiVersion: networking.k8s.io/v1*/}}
-{{/*kind: Ingress*/}}
-{{/*metadata:*/}}
-{{/*  name: {{ .Values.kafka_ui.ingress.name }}*/}}
-{{/*  annotations:*/}}
-{{/*    cert-manager.io/cluster-issuer: {{ .Values.kafka_ui.cert_issuer }}*/}}
-{{/*    nginx.ingress.kubernetes.io/proxy-body-size: 1000m*/}}
-{{/*    nginx.ingress.kubernetes.io/proxy-buffer-size: 32k*/}}
-{{/*    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"*/}}
-{{/*    nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.kafka_ui.ingress.ipWhitelist }}*/}}
-{{/*spec:*/}}
-{{/*  ingressClassName: public*/}}
-{{/*  rules:*/}}
-{{/*    - host: {{ .Values.kafka_ui.ingress.host }}*/}}
-{{/*      http:*/}}
-{{/*        paths:*/}}
-{{/*          - pathType: Prefix*/}}
-{{/*            path: /*/}}
-{{/*            backend:*/}}
-{{/*              service:*/}}
-{{/*                name: {{ .Values.kafka_ui.name }}-service*/}}
-{{/*                port:*/}}
-{{/*                  number: {{ .Values.kafka_ui.networking.internal_port }}*/}}
-{{/*  tls:*/}}
-{{/*    - secretName: {{ .Values.kafka_ui.secrets.certificate }}*/}}
-{{/*      hosts:*/}}
-{{/*        - {{ .Values.kafka_ui.ingress.host }}*/}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.kafka_ui.ingress.name }}
+  annotations:
+    cert-manager.io/cluster-issuer: {{ .Values.kafka_ui.cert_issuer }}
+    nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 32k
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.kafka_ui.ingress.ipWhitelist }}
+spec:
+  ingressClassName: public
+  rules:
+    - host: {{ .Values.kafka_ui.ingress.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: {{ .Values.kafka_ui.name }}-service
+                port:
+                  number: {{ .Values.kafka_ui.networking.internal_port }}
+  tls:
+    - secretName: {{ .Values.kafka_ui.secrets.certificate }}
+      hosts:
+        - {{ .Values.kafka_ui.ingress.host }}

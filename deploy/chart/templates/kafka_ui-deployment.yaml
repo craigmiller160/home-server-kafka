@@ -1,29 +1,29 @@
-{{/*apiVersion: apps/v1*/}}
-{{/*kind: Deployment*/}}
-{{/*metadata:*/}}
-{{/*  name: {{ .Values.kafka_ui.name }}*/}}
-{{/*spec:*/}}
-{{/*  replicas: 1*/}}
-{{/*  selector:*/}}
-{{/*    matchLabels:*/}}
-{{/*      app: {{ .Values.kafka_ui.name }}*/}}
-{{/*  template:*/}}
-{{/*    metadata:*/}}
-{{/*      labels:*/}}
-{{/*        app: {{ .Values.kafka_ui.name }}*/}}
-{{/*    spec:*/}}
-{{/*      containers:*/}}
-{{/*        - name: {{ .Values.kafka_ui.name }}*/}}
-{{/*          image: "provectuslabs/kafka-ui:{{ .Values.kafka_ui.version }}"*/}}
-{{/*          ports:*/}}
-{{/*            - containerPort: {{ .Values.kafka_ui.networking.internal_port }}*/}}
-{{/*          envFrom:*/}}
-{{/*            - configMapRef:*/}}
-{{/*                name: {{ .Values.kafka_ui.configmap.primary }}*/}}
-{{/*          volumeMounts:*/}}
-{{/*            - mountPath: /etc/kafkaui*/}}
-{{/*              name: {{ .Values.kafka_ui.volumes.dynamic_config }}*/}}
-{{/*      volumes:*/}}
-{{/*        - name: {{ .Values.kafka_ui.volumes.dynamic_config }}*/}}
-{{/*          configMap:*/}}
-{{/*            name: {{ .Values.kafka_ui.configmap.dynamic_config }}*/}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.kafka_ui.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.kafka_ui.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.kafka_ui.name }}
+    spec:
+      containers:
+        - name: {{ .Values.kafka_ui.name }}
+          image: "provectuslabs/kafka-ui:{{ .Values.kafka_ui.version }}"
+          ports:
+            - containerPort: {{ .Values.kafka_ui.networking.internal_port }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.kafka_ui.configmap.primary }}
+          volumeMounts:
+            - mountPath: /etc/kafkaui
+              name: {{ .Values.kafka_ui.volumes.dynamic_config }}
+      volumes:
+        - name: {{ .Values.kafka_ui.volumes.dynamic_config }}
+          configMap:
+            name: {{ .Values.kafka_ui.configmap.dynamic_config }}
