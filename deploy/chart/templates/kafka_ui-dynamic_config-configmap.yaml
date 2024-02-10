@@ -12,5 +12,5 @@ data:
           security.protocol: SASL_PLAINTEXT
           sasl.mechanism: PLAIN
           sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required
-            username="user" password="password";
+            username="$SUPER_USER" password="$SUPER_PASSWORD";
         readOnly: false
