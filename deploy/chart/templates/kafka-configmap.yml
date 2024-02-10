@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ tpl .Values.kafka.configmap.primary . }}
+  name: {{ .Values.kafka.configmap.primary }}
 data:
   KAFKA_CFG_NODE_ID: "0"
   KAFKA_CFG_PROCESS_ROLES: "controller,broker"
