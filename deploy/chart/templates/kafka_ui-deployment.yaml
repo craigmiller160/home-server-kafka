@@ -53,6 +53,18 @@ spec:
           volumeMounts:
             - mountPath: /etc/kafkaui
               name:  {{ .Values.kafka_ui.volumes.config }}
+          readinessProbe:
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            failureThreshold: 10
+            httpGet:
+              port: 8080
+          livenessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            failureThreshold: 3
+            httpGet:
+              port: 8080
       volumes:
         - name: {{ .Values.kafka_ui.volumes.dynamic_config_raw }}
           configMap:
