@@ -7,7 +7,7 @@ data:
     kafka:
       clusters:
       - bootstrapServers: "{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.internal_port }}"
-        name: SuperUserKafka
+        name: HomeServerKafka
         properties:
           security.protocol: SASL_PLAINTEXT
           sasl.mechanism: PLAIN
