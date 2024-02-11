@@ -21,7 +21,8 @@ spec:
             - -c
             - |
               cp /etc/kafkaui_raw/dynamic-config.yaml /etc/kafkaui &&
-              sed -i 's/\$SUPER_USER/${KAFKA_SUPER_USER_NAME}/g' /etc/kafkaui/dynamic-config.yaml
+              sed -i "s/\$SUPER_USER/${KAFKA_SUPER_USER_NAME}/g" /etc/kafkaui/dynamic-config.yaml &&
+              sed -i "s/\$SUPER_PASSWORD/${KAFKA_SUPER_USER_PASSWORD}/g" /etc/kafkaui/dynamic-config.yaml
           env:
             - name: KAFKA_SUPER_USER_NAME
               valueFrom:
