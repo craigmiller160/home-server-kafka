@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.kafka.name }}
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: {{ .Values.kafka.name }}
