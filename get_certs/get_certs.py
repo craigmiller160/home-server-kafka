@@ -1,5 +1,6 @@
 import yaml
 import subprocess
+import base64
 
 
 def get_certificate_secret():
@@ -16,6 +17,7 @@ def extract_certs(yaml_string):
 
 
 def write_to_file(file_name, content):
+    decoded_content = base64.b64decode(content)
     with open(file_name, 'wb') as file:
         file.write(content)
 
