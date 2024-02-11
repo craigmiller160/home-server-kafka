@@ -49,8 +49,6 @@ spec:
           volumeMounts:
             - mountPath: /etc/kafkaui
               name:  {{ .Values.kafka_ui.volumes.dynamic_config }}
-            - mountPath: /etc/kafkaui_raw
-              name: {{ .Values.kafka_ui.volumes.dynamic_config_raw }}
       volumes:
         - name: {{ .Values.kafka_ui.volumes.dynamic_config_raw }}
           configMap:
