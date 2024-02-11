@@ -16,6 +16,12 @@ spec:
         - name: {{ .Values.kafka_ui.name }}-config-modifier
           image: busybox:1.35.0
           imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              cp /etc/kafkaui_raw/dynamic-config.yaml /etc/kafkaui &&
+              sed -i 's/\$SUPER_USER/$KAFKA_SUPER_USER_NAME/g' /etc/kafkaui/dynamic-config.yaml
           env:
             - name: KAFKA_SUPER_USER_NAME
               valueFrom:
