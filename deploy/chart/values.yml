@@ -33,7 +33,7 @@ kafka_ui:
       private: kafka-ui-private-service
     internal_port: 8080
   volumes:
-    dynamic_config: dynamic-config-volume
+    config: config-volume
     dynamic_config_raw: dynamic-config-raw-volume
   cert_issuer: letsencrypt-kafka-ui
   ingress:
