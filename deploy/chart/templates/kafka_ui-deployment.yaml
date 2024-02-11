@@ -54,7 +54,7 @@ spec:
             - mountPath: /etc/kafkaui
               name:  {{ .Values.kafka_ui.volumes.config }}
           readinessProbe:
-            initialDelaySeconds: 0
+            initialDelaySeconds: 5
             periodSeconds: 5
             failureThreshold: 10
             httpGet:
