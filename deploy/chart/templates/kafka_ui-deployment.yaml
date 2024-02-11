@@ -27,6 +27,11 @@ spec:
                 secretKeyRef:
                   key: password
                   name: {{ .Values.kafka.secrets.super_user }}
+          volumeMounts:
+            - mountPath: /etc/kafkaui
+              name: {{ .Values.kafka_ui.volumes.dynamic_config }}
+            - mountPath: /etc/kafkaui_raw
+              name: {{ .Values.kafka_ui.volumes.dynamic_config_raw }}
       containers:
         - name: {{ .Values.kafka_ui.name }}
           image: "provectuslabs/kafka-ui:{{ .Values.kafka_ui.version }}"
