@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.kafka_ui.configmap.dynamic_config }}
 data:
-  dynamic-config.yaml: |
+  dynamic_config.yaml: |
     kafka:
       clusters:
       - bootstrapServers: "{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.internal_port }}"
