@@ -26,6 +26,18 @@ spec:
   isCA: true
   commonName: {{ .Values.kafka.secrets.certificate }}
   secretName: {{ .Values.kafka.secrets.certificate }}
+  subject:
+    organizations:
+      - "Craig Miller"
+    organizationalUnits:
+      - Kafka
+    countries:
+      - US
+    states:
+      - FL
+  dnsNames:
+    - {{ .Values.kafka.networking.services.public }}
+    - {{ .Values.kafka.networking.services.private }}
   privateKey:
     algorithm: RSA
     size: 4096
