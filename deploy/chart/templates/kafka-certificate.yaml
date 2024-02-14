@@ -38,6 +38,7 @@ spec:
   dnsNames:
     - {{ .Values.kafka.networking.services.public }}
     - {{ .Values.kafka.networking.services.private }}
+    - {{ .Values.kafka.publicHost }}
   privateKey:
     algorithm: RSA
     size: 4096
