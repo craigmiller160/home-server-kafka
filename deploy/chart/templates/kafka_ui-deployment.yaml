@@ -25,6 +25,7 @@ spec:
               cp /etc/certs/truststore.p12 /etc/kafkaui/kafka.truststore.jks &&
               sed -i "s/\$SUPER_USER/${KAFKA_SUPER_USER_NAME}/g" /etc/kafkaui/dynamic_config.yaml &&
               sed -i "s/\$SUPER_PASSWORD/${KAFKA_SUPER_USER_PASSWORD}/g" /etc/kafkaui/dynamic_config.yaml &&
+              sed -i "s/\$TRUSTSTORE_PASSWORD/${KAFKA_TRUSTSTORE_PASSWORD}/g" /etc/kafkaui/dynamic_config.yaml &&
               chmod 666 /etc/kafkaui/dynamic_config.yaml
           env:
             - name: KAFKA_SUPER_USER_NAME
@@ -37,6 +38,11 @@ spec:
                 secretKeyRef:
                   key: password
                   name: {{ .Values.kafka.secrets.super_user }}
+            - name: KAFKA_TRUSTSTORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka.secrets.keystore_password }}
           volumeMounts:
             - mountPath: /etc/kafkaui
               name: {{ .Values.kafka_ui.volumes.config }}
