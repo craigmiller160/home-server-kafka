@@ -9,8 +9,11 @@ data:
       - bootstrapServers: "{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.internal_port }}"
         name: HomeServerKafka
         properties:
-          security.protocol: SASL_PLAINTEXT
+          security.protocol: SASL_SSL
           sasl.mechanism: PLAIN
           sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required
             username="$SUPER_USER" password="$SUPER_PASSWORD";
         readOnly: false
+        ssl:
+          truststoreLocation: /etc/kafkaui/kafka.truststore.jks
+          truststorePassword: $TRUSTSTORE_PASSWORD
