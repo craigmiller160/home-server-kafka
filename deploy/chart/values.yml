@@ -43,3 +43,4 @@ kafka_ui:
     ipWhitelist: 47.196.38.229/32
   secrets:
     certificate: letsencrypt-kafka-ui-private-key
+    admin_user: kafka-ui-admin-user
