@@ -58,6 +58,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.kafka_ui.configmap.primary }}
+          env:
+            - name: SPRING_SECURITY_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Values.kafka_ui.secrets.admin_user }}
+            - name: SPRING_SECURITY_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Values.kafka_ui.secrets.admin_user }}
           volumeMounts:
             - mountPath: /etc/kafkaui
               name:  {{ .Values.kafka_ui.volumes.config }}
