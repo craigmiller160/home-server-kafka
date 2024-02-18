@@ -4,3 +4,6 @@ metadata:
   name: {{ .Values.kafka_ui.configmap.primary }}
 data:
   DYNAMIC_CONFIG_ENABLED: "true"
+  AUTH_TYPE: "LOGIN_FORM"
+  SPRING_SECURITY_USER_NAME: "admin"
+  SPRING_SECURITY_USER_PASSWORD: "pass"
