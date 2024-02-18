@@ -23,7 +23,7 @@ kafka:
     controller_port: 9093
     external_port: 9094
     public_port: 30020
-    lan_ip: 192.168.7.232
+    lan_host: craigpc
 kafka_ui:
   name: kafka-ui
   version: v0.7.1

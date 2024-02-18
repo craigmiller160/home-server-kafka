@@ -6,7 +6,7 @@ data:
   KAFKA_CFG_NODE_ID: "0"
   KAFKA_CFG_PROCESS_ROLES: "controller,broker"
   KAFKA_CFG_LISTENERS: "INTERNAL://:{{ .Values.kafka.networking.internal_port }},CONTROLLER://:{{ .Values.kafka.networking.controller_port }},EXTERNAL://:{{ .Values.kafka.networking.external_port }}"
-  KAFKA_CFG_ADVERTISED_LISTENERS: "INTERNAL://{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.internal_port }},EXTERNAL://{{ .Values.kafka.networking.lan_ip }}:{{ .Values.kafka.networking.public_port }}"
+  KAFKA_CFG_ADVERTISED_LISTENERS: "INTERNAL://{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.internal_port }},EXTERNAL://{{ .Values.kafka.networking.lan_host }}:{{ .Values.kafka.networking.public_port }}"
   KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:SASL_SSL,INTERNAL:SASL_SSL,EXTERNAL:SASL_SSL"
   KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: "0@{{ .Values.kafka.networking.services.private }}:{{ .Values.kafka.networking.controller_port }}"
   KAFKA_CFG_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
