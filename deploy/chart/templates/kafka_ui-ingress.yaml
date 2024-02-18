@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: public
   rules:
-    - host: {{ .Values.kafka.publicHost }}
+    - host: {{ .Values.hosts.public }}
       http:
         paths:
           - pathType: Prefix
@@ -24,4 +24,4 @@ spec:
   tls:
     - secretName: {{ .Values.kafka_ui.secrets.certificate }}
       hosts:
-        - {{ .Values.kafka.publicHost }}
+        - {{ .Values.hosts.public }}
